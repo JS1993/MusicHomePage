@@ -9,6 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIButton *lastButton;
 
 @end
 
@@ -16,7 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    //设置上边距
+//    self.scrollView.contentInset=UIEdgeInsetsMake(64, 0, 0, 0);
+    //设置内容大小
+    self.scrollView.contentSize=CGSizeMake(self.view.bounds.size.width, CGRectGetMaxY(self.lastButton.frame)+50);
+    //影藏竖直滚动条
+    self.scrollView.showsVerticalScrollIndicator=NO;
 }
 
 - (void)didReceiveMemoryWarning {
